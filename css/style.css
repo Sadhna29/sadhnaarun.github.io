@@ -1,0 +1,305 @@
+/* Fonts & Global Resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --bg: #ffffff;
+    --text: #000000;
+    --border: #000000;
+    --gray: #777777;
+  }
+  
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", sans-serif;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  /* Header */
+  .site-header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 32px;
+    background-color: var(--bg);
+    border-bottom: 2px solid var(--border);
+    z-index: 50;
+  }
+  
+  .logo {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  
+  .nav-links a.active {
+    text-decoration: underline;
+  }
+  
+  /* Main Container */
+  .main-content {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 40px 32px 80px;
+  }
+  
+  .intro {
+    margin-bottom: 48px;
+  }
+  
+  .tagline {
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    max-width: 800px;
+    line-height: 1.15;
+  }
+  
+  /* Ana Cuna Project Stack */
+  .project-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 2px solid var(--border);
+  }
+  
+  .project-card {
+    display: block;
+    background-color: var(--bg);
+    border-bottom: 2px solid var(--border);
+    border-left: 2px solid var(--border);
+    border-right: 2px solid var(--border);
+    position: relative;
+    /* Lift up and transition smoothly */
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.25s ease,
+                box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  .card-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 24px;
+  }
+  
+  .project-meta {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  
+  .project-num {
+    font-size: 1rem;
+    font-weight: 700;
+    opacity: 0.6;
+  }
+  
+  .project-title {
+    font-size: clamp(1.5rem, 3vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+  
+  .project-tags {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .arrow {
+    font-size: 1.4rem;
+    display: inline-block;
+    transition: transform 0.2s ease;
+  }
+  
+  /* Hover state: lift up, cast drop shadow */
+  .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 0px var(--border);
+    z-index: 10;
+  }
+  
+  .project-card:hover .arrow {
+    transform: translate(3px, -3px);
+  }
+  
+  /* Floating Image Preview */
+  .hover-preview {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 340px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 100;
+    border: 2px solid var(--border);
+    background-color: #000;
+    overflow: hidden;
+  }
+  
+  .hover-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .hover-preview.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  /* About Page */
+  .about-title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  
+  .about-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    border-top: 2px solid var(--border);
+    padding-top: 32px;
+  }
+  
+  .about-bio .lead-text {
+    font-size: 1.4rem;
+    line-height: 1.4;
+    margin-bottom: 24px;
+  }
+  
+  .about-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  
+  .about-block h3 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+    color: var(--gray);
+  }
+  
+  .about-block ul {
+    list-style: none;
+  }
+  
+  .about-block li {
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  
+  /* Detail Page */
+  .detail-header {
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+  }
+  
+  .detail-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  
+  .detail-info {
+    display: flex;
+    gap: 40px;
+    font-size: 0.95rem;
+  }
+  
+  .detail-media img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    border: 2px solid var(--border);
+  }
+  
+  .detail-narrative {
+    margin-top: 32px;
+    font-size: 1.2rem;
+    max-width: 700px;
+  }
+  
+  /* Footer */
+  .site-footer {
+    border-top: 2px solid var(--border);
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  
+  .footer-links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .card-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .site-header {
+      padding: 16px 20px;
+    }
+    .main-content {
+      padding: 24px 20px;
+    }
+    .hover-preview {
+      display: none; /* Hide floating cursor on touch devices */
+    }
+    
+    .full-media {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+  }
